@@ -1,6 +1,8 @@
 # Fresh Air - A Breathing Chrome Extension
 Fresh Air is a New Tab extension built for chrome that leads you through a simple breathing exercise before you browse. It’s designed to help you take a break, take a breath, and become more mindful while mindlessly browsing the web.
 
+[![A Screenshot of the extension](assets/screenshot1.png)](http://ryderdamen.com/fresh-air)
+
 See more at [ryderdamen.com](http://ryderdamen.com/fresh-air)
 Download it [in the chrome store](http://ryderdamen.com/fresh-air)
 
