@@ -1,0 +1,20 @@
+{
+  "manifest_version": 2,
+  "name": "Fresh Air - A Simple Breathing Tool",
+  "version": "1.0",
+  "description": "A minimal breathing tool that replaces your new tab page with a clear head.",
+  "author": "Ryder Damen",
+  "icons": {
+           "48": "assets/48.png",
+          "128": "assets/128.png"
+          },
+  "chrome_url_overrides" : { "newtab": "index.html" },
+  "permissions": [
+  "storage"
+  ],
+  "options_page": "options.html",
+  "content_scripts": [{
+     "js": ["js/jquery.min.js", "js/main.js", "js/options.js", "js/progressBar.js"],
+     "matches": ["http://*/*", "https://*/*"]
+   }]
+}
