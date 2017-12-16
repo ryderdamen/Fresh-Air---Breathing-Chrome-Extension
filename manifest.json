@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Fresh Air - A Simple Breathing Tool",
-  "version": "1.0",
+  "version": "1.1",
   "description": "A minimal breathing tool that replaces your new tab page with a clear head.",
   "author": "Ryder Damen",
   "icons": {
