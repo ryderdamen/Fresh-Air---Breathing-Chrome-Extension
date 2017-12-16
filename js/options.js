@@ -89,6 +89,7 @@ function onPageLoad() {
 			'fa_holdLength',
 			'fa_startAutomatically',
 			'fa_circleColorHex',
+			'fa_showDate'
 		], function (stored) {
 			
 			// Handling Undefined Variables
@@ -105,6 +106,10 @@ function onPageLoad() {
 				stored.fa_startAutomatically = 1; // Default to start automatically
 			}
 			
+			if (stored.fa_showDate == undefined) {
+				stored.fa_startAutomatically = 0; // Default No
+			}
+			
 			if (stored.fa_circleColorHex == undefined || stored.fa_circleColorHex == "undefined") {
 				stored.fa_circleColorHex = "#4db6ac";
 			}
@@ -114,13 +119,10 @@ function onPageLoad() {
 			document.getElementById("holdLength").value = stored.fa_holdLength;
 			document.getElementById("startAutomatically").checked = stored.fa_startAutomatically;
 			document.getElementById("circleColorHex").value = stored.fa_circleColorHex;
+			document.getElementById("showDate").checked = stored.fa_showDate;
 	});
 }
 
-function goBack() { // DEPRECATED
-	// Return to the previous window; should we save?
-	window.history.back();
-}
 
 function onSubmit() {
 	// When the submit button is pressed, write the preferences
@@ -129,38 +131,22 @@ function onSubmit() {
 	var holdLength = document.getElementById("holdLength").value;
 	var startAutomatically = document.getElementById("startAutomatically").checked;
 	var circleColorHex = document.getElementById("circleColorHex").value;
+	var showDate = document.getElementById("showDate").checked;
 	
-	writePreferences(inhaleLength, holdLength, startAutomatically, circleColorHex);
+	writePreferences(inhaleLength, holdLength, startAutomatically, circleColorHex, showDate);
 }
 
-function writePreferences(inhaleLength, holdLength, startAutomatically, circleColorHex) {
+function writePreferences(inhaleLength, holdLength, startAutomatically, circleColorHex, showDate) {
 	// Writes preferences to chrome's storage, and to a javascript temp file
 		// Save to chrome sync'd storage
         chrome.storage.sync.set({
 	        'fa_inhaleLength': inhaleLength,
 	        'fa_holdLength': holdLength,
 	        'fa_startAutomatically': startAutomatically,
-	        'fa_circleColorHex': circleColorHex
-	        }, function() {
-		        // TODO, replace this with a toast or something
-		        
-		        
-		        //$.notify("Hello World");
-		        
+	        'fa_circleColorHex': circleColorHex,
+	        'fa_showDate': showDate
+	        }, function() {		        
 		        $("#submitButton").notify("Got it! Saved!", "success");
-
-		        
-/*
-		        var button = document.getElementById("submitButton");
-		        var originalBackgroundColor = button.style.backgroundColor;
-		        var originalTextColor = button.style.color;
-		        button.style.backgroundColor = "#00FF7F";
-		        button.style.color = "#FFF";
-		        setTimeout(function(){ 
-			        button.style.backgroundColor = originalBackgroundColor;
-					button.style.color = originalTextColor;
-			         }, 300);
-*/
 	        });	    
 }
 

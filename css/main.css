@@ -37,3 +37,21 @@ body {
   width: 100px;
   height: 100px;
 }
+
+#text {
+	color: #313131;
+	opacity: 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	background-color: #f8f8f8;
+	padding: 10px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	pointer-events: none;
+	
+	
+
+}
