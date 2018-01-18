@@ -1,6 +1,6 @@
 /*
 Main.js
-Version: 1.0
+Version: 1.0.1
 Author: Ryder Damen
 ryderdamen.com/fresh-air
 
